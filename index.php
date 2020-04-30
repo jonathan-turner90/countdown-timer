@@ -3,8 +3,7 @@
   <title>PHP Test</title>
  </head>
  <body>
- <?php echo '<p>Hello World</p>'; $gif = new AnimatedGif($frames,$delays,$loops);
-	$gif->display();?> 
+ <?php echo '<p>Hello World</p>'; ?> 
   
  </body>
 </html>
