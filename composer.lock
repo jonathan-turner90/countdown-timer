@@ -1,3 +1,14 @@
-{ 
-  
+{
+	"packages": [{
+		"name": "chh/cache-service-provider",
+		"version": "v1.1.1",
+		"source": {
+			"type": "git",
+			"url": "https://github.com/CHH/cache-service-provider.git",
+			"reference": "a55a4f2d49f9d5f2ae5ee4247d27a98750a81dc1"
+		},
+		"require": {
+			"ext-gd": "*"
+		}
+	}]
 }
