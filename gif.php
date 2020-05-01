@@ -18,7 +18,7 @@
 	$delay = 100;// milliseconds
 
 	$font = array(
-		'size' => 18, // Font size, in pts usually.
+		'size' => 30, // Font size, in pts usually.
 		'angle' => 0, // Angle of the text
 		'x-offset' => 30, // The larger the number the further the distance from the left hand side, 0 to align to the left.
 		'y-offset' => 50, // The vertical alignment, trial and error between 20 and 60.
