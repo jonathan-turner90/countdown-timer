@@ -46,7 +46,7 @@
 			// Open the first source image and add the text.
 			$image = imagecreatefrompng('images/countdown_new.png');
 			;
-			$text = $interval->format('0%a&\nb\sp;&\nb\sp;&\nb\sp;&\nb\sp;&\nb\sp;%H %I %S');
+			$text = $interval->format('0%<\b\\r> %H %I %S');
 			imagettftext ($image , $font['size'] , $font['angle'] , $font['x-offset'] , $font['y-offset'] , $font['color'] , $font['file'], $text );
 			ob_start();
 			imagegif($image);
