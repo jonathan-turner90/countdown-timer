@@ -1,7 +1,5 @@
 {
-	"packages": [{
-		"require": {
-			"ext-gd": "*"
-		}
-	}]
+	"require": {
+		"ext-gd": "*"
+	}
 }
