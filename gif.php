@@ -20,8 +20,8 @@
 	$font = array(
 		'size' => 45, // Font size, in pts usually.
 		'angle' => 0, // Angle of the text
-		'x-offset' => 70, // The larger the number the further the distance from the left hand side, 0 to align to the left.
-		'y-offset' => 60, // The vertical alignment, trial and error between 20 and 60.
+		'x-offset' => 80, // The larger the number the further the distance from the left hand side, 0 to align to the left.
+		'y-offset' => 55, // The vertical alignment, trial and error between 20 and 60.
 		'file' => __DIR__ . DIRECTORY_SEPARATOR . 'Futura.ttc', // Font path
 		'color' => imagecolorallocate($image, 255, 0, 0), // RGB Colour of the text
 	);
