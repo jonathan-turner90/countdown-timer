@@ -20,7 +20,7 @@
 	$font = array(
 		'size' => 45, // Font size, in pts usually.
 		'angle' => 0, // Angle of the text
-		'x-offset' => 80, // The larger the number the further the distance from the left hand side, 0 to align to the left.
+		'x-offset' => 75, // The larger the number the further the distance from the left hand side, 0 to align to the left.
 		'y-offset' => 55, // The vertical alignment, trial and error between 20 and 60.
 		'file' => __DIR__ . DIRECTORY_SEPARATOR . 'Futura.ttc', // Font path
 		'color' => imagecolorallocate($image, 255, 0, 0), // RGB Colour of the text
@@ -46,7 +46,7 @@
 			// Open the first source image and add the text.
 			$image = imagecreatefrompng('images/countdown_new.png');
 			;
-			$text = $interval->format('0%a   %H   %I   %S');
+			$text = $interval->format('0%a     %H     %I     %S');
 			imagettftext ($image , $font['size'] , $font['angle'] , $font['x-offset'] , $font['y-offset'] , $font['color'] , $font['file'], $text );
 			ob_start();
 			imagegif($image);
