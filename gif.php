@@ -13,15 +13,15 @@
 
 
 	// Your image link
-	$image = imagecreatefrompng('/images/countdown.png');
+	$image = imagecreatefrompng('/images/countdown2.png');
 
 	$delay = 100;// milliseconds
 
 	$font = array(
-		'size' => 30, // Font size, in pts usually.
+		'size' => 18, // Font size, in pts usually.
 		'angle' => 0, // Angle of the text
-		'x-offset' => 30, // The larger the number the further the distance from the left hand side, 0 to align to the left.
-		'y-offset' => 50, // The vertical alignment, trial and error between 20 and 60.
+		'x-offset' => 0, // The larger the number the further the distance from the left hand side, 0 to align to the left.
+		'y-offset' => 30, // The vertical alignment, trial and error between 20 and 60.
 		'file' => __DIR__ . DIRECTORY_SEPARATOR . 'Futura.ttc', // Font path
 		'color' => imagecolorallocate($image, 255, 255, 255), // RGB Colour of the text
 	);
@@ -31,7 +31,7 @@
 		
 		if($future_date < $now){
 			// Open the first source image and add the text.
-			$image = imagecreatefrompng('images/countdown.png');
+			$image = imagecreatefrompng('images/countdown2.png');
 			;
 			$text = $interval->format('00:00:00:00');
 			imagettftext ($image , $font['size'] , $font['angle'] , $font['x-offset'] , $font['y-offset'] , $font['color'] , $font['file'], $text );
@@ -44,7 +44,7 @@
 			break;
 		} else {
 			// Open the first source image and add the text.
-			$image = imagecreatefrompng('images/countdown.png');
+			$image = imagecreatefrompng('images/countdown2.png');
 			;
 			$text = $interval->format('0%a %H %I %S');
 			imagettftext ($image , $font['size'] , $font['angle'] , $font['x-offset'] , $font['y-offset'] , $font['color'] , $font['file'], $text );
