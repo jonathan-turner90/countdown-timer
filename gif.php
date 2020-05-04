@@ -5,7 +5,7 @@
 	include 'GIFEncoder.class.php';
 	include 'php52-fix.php';
 	$time = $_GET['time'];
-	$future_date = new DateTime(date('r',strtotime($time)));
+	$future_date = new DateTime(date('2020-05-05 17:20:20',strtotime($time)));
 	$time_now = time();
 	$now = new DateTime(date('r', $time_now));
 	$frames = array();	
@@ -20,10 +20,40 @@
 	$font = array(
 		'size' => 45, // Font size, in pts usually.
 		'angle' => 0, // Angle of the text
-		'x-offset' => 74, // The larger the number the further the distance from the left hand side, 0 to align to the left.
+		'x-offset' => 78, // The larger the number the further the distance from the left hand side, 0 to align to the left.
 		'y-offset' => 55, // The vertical alignment, trial and error between 20 and 60.
 		'file' => __DIR__ . DIRECTORY_SEPARATOR . 'Montserrat-Regular.otf', // Font path
 		'color' => imagecolorallocate($image, 255, 0, 0), // RGB Colour of the text
+	);
+	$fallback = array(
+		'size' => 30,
+		'x-offset' => 100,
+		'y-offset' => 50,
+	);
+	$day = array(
+		'x-offset' => 78, // The larger the number the further the distance from the left hand side, 0 to align to the left.
+	);
+
+	$hour = array(
+		'x-offset' => 255, // The larger the number the further the distance from the left hand side, 0 to align to the left.
+	);
+	$minute = array(
+		'x-offset' => 428, // The larger the number the further the distance from the left hand side, 0 to align to the left.
+	);
+	$second = array(
+		'x-offset' => 596, // The larger the number the further the distance from the left hand side, 0 to align to the left.
+	);
+	$firstdivider = array(
+		'x-offset' => 192, // The larger the number the further the distance from the left hand side, 0 to align to the left.
+		'y-offset' => 50, // The vertical alignment, trial and error between 20 and 60.
+	);
+	$seconddivider = array(
+		'x-offset' => 364, // The larger the number the further the distance from the left hand side, 0 to align to the left.
+		'y-offset' => 50, // The vertical alignment, trial and error between 20 and 60.
+	);
+	$thirddivider = array(
+		'x-offset' => 539, // The larger the number the further the distance from the left hand side, 0 to align to the left.
+		'y-offset' => 50, // The vertical alignment, trial and error between 20 and 60.
 	);
 	for($i = 0; $i <= 60; $i++){
 		
@@ -33,8 +63,8 @@
 			// Open the first source image and add the text.
 			$image = imagecreatefrompng('images/countdown_new.png');
 			;
-			$text = $interval->format('00:00:00:00');
-			imagettftext ($image , $font['size'] , $font['angle'] , $font['x-offset'] , $font['y-offset'] , $font['color'] , $font['file'], $text );
+			$text = $interval->format('The countdown has ended');
+			imagettftext ($image , $fallback['size'] , $font['angle'] , $fallback['x-offset'] , $fallback['y-offset'] , $font['color'] , $font['file'], $text );
 			ob_start();
 			imagegif($image);
 			$frames[]=ob_get_contents();
@@ -46,8 +76,19 @@
 			// Open the first source image and add the text.
 			$image = imagecreatefrompng('images/countdown_new.png');
 			;
-			$text = $interval->format('0%a       %H      %I       %S');
-			imagettftext ($image , $font['size'] , $font['angle'] , $font['x-offset'] , $font['y-offset'] , $font['color'] , $font['file'], $text );
+			$days = $interval->format('0%a');
+			$dividerone = $dividertwo = $dividerthree = ':';
+			$hours = $interval->format('%H');
+			$minutes = $interval->format('%I');
+			$seconds = $interval->format('%S');
+			imagettftext ($image , $font['size'] , $font['angle'] , $day['x-offset'] , $font['y-offset'] , $font['color'] , $font['file'],  $days );
+			imagettftext ($image , $font['size'] , $font['angle'] , $hour['x-offset'] , $font['y-offset'] , $font['color'] , $font['file'],  $hours );
+			imagettftext ($image , $font['size'] , $font['angle'] , $minute['x-offset'] , $font['y-offset'] , $font['color'] , $font['file'],  $minutes );
+			imagettftext ($image , $font['size'] , $font['angle'] , $second['x-offset'] , $font['y-offset'] , $font['color'] , $font['file'],  $seconds );
+			imagettftext ($image , $font['size'] , $font['angle'] , $firstdivider['x-offset'] , $firstdivider['y-offset'] , $font['color'] , $font['file'],  $dividerone );
+			imagettftext ($image , $font['size'] , $font['angle'] , $seconddivider['x-offset'] , $seconddivider['y-offset'] , $font['color'] , $font['file'],  $dividertwo );
+			imagettftext ($image , $font['size'] , $font['angle'] , $thirddivider['x-offset'] , $thirddivider['y-offset'] , $font['color'] , $font['file'],  $dividerthree );
+
 			ob_start();
 			imagegif($image);
 			$frames[]=ob_get_contents();
