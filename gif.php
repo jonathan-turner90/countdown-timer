@@ -5,11 +5,13 @@
 	include 'GIFEncoder.class.php';
 	include 'php52-fix.php';
 	$time = $_GET['time'];
-	$future_date = new DateTime(date('2020-05-05 17:20:20',strtotime($time)));
+	$date = '2020-05-05 13:04';
+	$future_date = new DateTime(date($date,strtotime($time)));
 	$time_now = time();
 	$now = new DateTime(date('r', $time_now));
 	$frames = array();	
 	$delays = array();
+
 
 
 	// Your image link
@@ -106,5 +108,7 @@
 	header( 'Cache-Control: no-store, no-cache, must-revalidate' );
 	header( 'Cache-Control: post-check=0, pre-check=0', false );
 	header( 'Pragma: no-cache' );
-	$gif = new AnimatedGif($frames,$delays,$loops);
-	$gif->display();
+	$gif = new \temp\AnimatedGif($frames,$delays,$loops);
+	return $gif->getAnimation();
+
+
