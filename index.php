@@ -6,8 +6,8 @@
 	include 'GIFEncoder.class.php';
 	include 'php52-fix.php';
 	$date = '2020-05-15 13:04';
-	$future_date = new DateTime(date($date,strtotime()));
 	$time_now = time();
+	$future_date = new DateTime(date($date,strtotime($time_now)));
 	$now = new DateTime(date('r', $time_now));
 	$frames = array();	
 	$delays = array();
