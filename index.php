@@ -5,9 +5,8 @@
 	date_default_timezone_set('Europe/London');
 	include 'GIFEncoder.class.php';
 	include 'php52-fix.php';
-	$time = $_GET['time'];
 	$date = '2020-05-15 13:04';
-	$future_date = new DateTime(date($date,strtotime($time)));
+	$future_date = new DateTime(date($date,strtotime()));
 	$time_now = time();
 	$now = new DateTime(date('r', $time_now));
 	$frames = array();	
