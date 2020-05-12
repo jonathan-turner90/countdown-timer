@@ -15,7 +15,7 @@
 
 
 	// Your image link
-	$image = imagecreatefrompng('/images/countdown_new.png');
+	$image = imagecreatefrompng('images/countdown_new.png');
 
 	$delay = 100;// milliseconds
 
